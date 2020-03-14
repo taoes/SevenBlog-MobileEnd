@@ -18,7 +18,7 @@
         <van-image src="https://img.yzcdn.cn/vant/leaf.jpg"></van-image>
 
         <router-view></router-view>
-
+        <div style="height: 5rem;"></div>
 
         <van-tabbar v-model="tabActive" @change="tabChanged">
 

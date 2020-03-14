@@ -68,8 +68,7 @@
         font-weight: bolder;
         margin-left: 10px;
         color: #7A7A7A;
-        margin-top: 10px;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
         font-family: STFangsong, "Microsoft YaHei";
     }
 
