@@ -15,7 +15,7 @@
                 @search="onSearch"
         />
 
-        <van-image src="https://img.yzcdn.cn/vant/leaf.jpg"></van-image>
+        <van-image :src="this.imgUrl"></van-image>
 
         <router-view></router-view>
         <div style="height: 5rem;"></div>
@@ -27,15 +27,13 @@
             <van-tabbar-item icon="column">博文</van-tabbar-item>
             <van-tabbar-item icon="youzan-shield">作品</van-tabbar-item>
         </van-tabbar>
-
-
     </div>
 </template>
 
 <script>
 
 
-    import {Toast} from 'vant'
+    import {Toast, Dialog} from 'vant'
 
     const routerList = ['/', '/book', '/blog', '/work'];
 
@@ -44,8 +42,16 @@
         name: 'App',
         data: function () {
             return {
+                show: true,
+                imgList: ['https://img.yzcdn.cn/vant/tree.jpg', 'https://img.yzcdn.cn/vant/leaf.jpg'],
                 searchText: '',
                 tabActive: 0
+            }
+        },
+        computed: {
+            imgUrl: function () {
+
+                return this.imgList[Math.floor(Math.random() * this.imgList.length)]
             }
         },
         methods: {
@@ -59,6 +65,9 @@
             tabChanged: function (tabIndex) {
                 this.$router.push(routerList[tabIndex]);
             }
+        },
+        mounted() {
+            Dialog({message: '非常抱歉,移动端网站正在开发中\n\n请使用电脑端访问本网站,谢谢', confirmButtonText: '我已知晓'});
         }
     }
 </script>
